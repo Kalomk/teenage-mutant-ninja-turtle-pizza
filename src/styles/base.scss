@@ -1,0 +1,70 @@
+@import './variables.scss';
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+._container {
+  max-width: ($containerWidth + $containerPadding) + px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $containerSidePadding + px;
+  @media (max-width: $breakPoint1200) {
+    max-width: 1160px;
+  }
+  @media (max-width: $breakPoint992) {
+    max-width: 970px;
+  }
+  @media (max-width: $breakPoint768) {
+    max-width: 740px;
+  }
+  @media (max-width: $breakPoint480) {
+    max-width: none;
+  }
+}
+.page_wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+//body locked
+body {
+  font-family: $fontSecondary;
+  &.locked {
+    overflow: hidden;
+  }
+}
+
+//Buttons
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.01em;
+  padding: 0 15px;
+  min-height: 48px;
+  transition: all 0.3s ease-in;
+  &__white {
+    background-color: #ffffff;
+    color: $colorSecondary;
+    &:hover {
+      background-color: $colorSecondary;
+      color: #fff;
+    }
+  }
+  &__secondary {
+    background: rgba(44, 130, 253, 0.15);
+    border-radius: 4px;
+    border: 3px solid transparent;
+    transition: all 0.3s ease-in;
+    &:hover {
+      transition: all 0.3s ease-in;
+      color: #ffffff;
+    }
+  }
+}

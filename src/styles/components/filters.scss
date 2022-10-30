@@ -1,0 +1,119 @@
+.filters {
+  margin-top: 81px;
+  &__body {
+    @media (min-width: $breakPoint992) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    @media (max-width: $breakPoint768) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+  &__list {
+    @media (max-width: $breakPoint768) {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    margin: 15px 0;
+  }
+  &__item {
+    cursor: pointer;
+    background: #f9f9f9;
+    border-radius: 30px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.015em;
+    transition: all 0.3s ease-in 0s;
+    color: #2c2c2c;
+    &:not(:first-child) {
+      margin-left: 15px;
+    }
+    @include adaptiv-value('padding', 15, 10, 1);
+    @include adaptiv-value('padding-right', 25, 15, 1);
+    @include adaptiv-value('padding-left', 25, 15, 1);
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: rgba(40, 40, 40, 0.725);
+        color: white;
+        transition: all 0.3s ease-in 0s;
+      }
+    }
+    @media (max-width: $breakPoint768) {
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+    &.active {
+      background-color: rgba(40, 40, 40, 1);
+      color: white;
+      transition: all 0.3s ease-in 0s;
+    }
+  }
+}
+.sort {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.015em;
+  width: 232px;
+  position: relative;
+  &__label {
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-right: 8px;
+      transition: all 0.3s ease 0s;
+    }
+
+    b {
+      margin-right: 8px;
+    }
+
+    span {
+      color: $colorPrimary;
+      border-bottom: 1px dashed $colorPrimary;
+      cursor: pointer;
+    }
+  }
+
+  &__popup {
+    position: absolute;
+    margin-top: 15px;
+    right: 0;
+    background: #ffffff;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px 0;
+    width: 160px;
+    @media (max-width: $breakPoint992) {
+      left: 65px;
+    }
+    ul {
+      overflow: hidden;
+      li {
+        padding: 12px 20px;
+        cursor: pointer;
+
+        &.active,
+        &:hover {
+          background: rgba(254, 95, 30, 0.05);
+        }
+
+        &.active {
+          font-weight: bold;
+          color: $colorPrimary;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,191 @@
+.pizza {
+  &__title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    letter-spacing: 0.01em;
+    color: #000000;
+    margin: 35px 0;
+  }
+
+  &_singleP {
+    &__loading {
+      margin-top: 80px;
+    }
+    &-wrapper {
+      font-family: $fontMain;
+      margin-top: 80px;
+      @media (min-width: $breakPoint992) {
+        display: flex;
+      }
+    }
+    &__title {
+      margin-bottom: 20px;
+      @include adaptiv-value('font-size', 48, 24, 1);
+    }
+    &__description {
+      margin-bottom: 40px;
+      color: #513b3b;
+    }
+    &__info {
+      display: flex;
+      @include adaptiv-value('font-size', 24, 16, 1);
+    }
+    &__left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    &__right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    &__price {
+      color: $colorPrimary;
+      @include adaptiv-value('font-size', 32, 20, 1);
+    }
+    &__info {
+      p {
+        margin-bottom: 5px;
+      }
+    }
+    img {
+      @media (max-width: $breakPoint768) {
+        width: 260px;
+        height: 260px;
+      }
+    }
+  }
+
+  &__empty {
+    text-align: center;
+    margin-top: 35px;
+    font-size: 40px;
+    color: $colorPrimary;
+  }
+}
+.pizza-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__img {
+    img {
+      width: 260px;
+      height: 260px;
+    }
+  }
+  &__title {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #000000;
+    margin: 12px 0;
+  }
+  &__buying {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 17px;
+    gap: 36px;
+    &__price {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 27px;
+      letter-spacing: 0.015em;
+      color: #000000;
+    }
+    &__addBtn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      border-radius: 30px;
+      padding: 10px 20px;
+      min-width: 100px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out 0s;
+      border: 1px solid $colorPrimary;
+      @media (any-hover: hover) {
+        &:hover {
+          background-color: $colorPrimary;
+          svg {
+            path {
+              transition: fill 0.3s ease-in 0s;
+              fill: white;
+            }
+          }
+          i {
+            color: $colorPrimary;
+            background-color: #fff;
+            transition: fill 0.3s ease-in 0s;
+          }
+        }
+      }
+      &:active {
+        background-color: darken($colorPrimary, 12%);
+        transform: translateY(1px);
+      }
+      span {
+        margin-left: 10px;
+      }
+      i {
+        display: inline-block;
+        border-radius: 30px;
+        background-color: $colorPrimary;
+        color: #fff;
+        font-weight: 600;
+        width: 22px;
+        height: 22px;
+        font-style: normal;
+        font-size: 13px;
+        line-height: 22px;
+        position: relative;
+        top: -1px;
+        left: 3px;
+      }
+    }
+  }
+}
+.selector-items {
+  background: #f3f3f3;
+  border-radius: 10px;
+  padding: 10px;
+  min-width: 280px;
+  &:first-child {
+    margin-bottom: 7px;
+  }
+  &__list {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+.selector-menu {
+  .seclector-menu__item {
+    cursor: pointer;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    &.active {
+      background-color: white;
+      border-radius: 10px;
+      transition: background-color 0.3s ease-in 0s;
+    }
+  }
+}
+.gallery__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, auto));
+  gap: 35px;
+}

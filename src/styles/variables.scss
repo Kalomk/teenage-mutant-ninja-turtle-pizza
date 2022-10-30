@@ -1,0 +1,47 @@
+@use "sass:math";
+@import './fonts.scss';
+$main_cont: 1280;
+$containerWidth: 1440;
+$containerPadding: 40;
+$containerSidePadding: math.div($containerPadding, 2);
+$breakPoint1200: 1199.98 + px;
+$breakPoint992: 991.98 + px;
+$breakPoint768: 767.98 + px;
+$breakPoint480: 479.98 + px;
+//Burger Menu
+$burgerBreakPoint: $breakPoint992;
+$burgerColor: black;
+$burgerActiveColor: white;
+// fonst
+$fontMain: "turtle", sans-serif;
+$fontSecondary: "turtle2";
+//colors
+$colorPrimary: #35a61b;
+$colorSecondary: rgba(232, 159, 113, 1);
+
+@mixin adaptiv-value($property, $startSize, $minSize, $type) {
+  $addSize: $startSize - $minSize;
+  @if $type == 1 {
+    // Только если меньше контейнера
+    #{ $property }: $startSize + px;
+    @media ( max-width : #{ $containerWidth + px } ) {
+      #{ $property }: calc(
+        #{$minSize + px} + #{$addSize} *
+          ((100vw - 320px) / #{$containerWidth - 320})
+      );
+    }
+  } @else if $type == 2 {
+    // Только если больше контейнера
+    #{ $property }: $startSize + px;
+    @media ( min-width : #{ $containerWidth + px } ) {
+      #{ $property }: calc(
+        #{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxwidth - 320})
+      );
+    }
+  } @else {
+    // Всегда
+    #{ $property }: calc(
+      #{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxwidth 320})
+    );
+  }
+}
