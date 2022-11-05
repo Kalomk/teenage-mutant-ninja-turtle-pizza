@@ -3,7 +3,6 @@ import PizzaBlock from './PizzaBlock';
 import MyLoader from './Skeleton';
 import { useAppDispatch } from '../../store';
 import { useSelector } from 'react-redux';
-import { createSelector } from '@reduxjs/toolkit';
 import { fetchPizzas } from '../slices/pizzaSlice';
 import { RootState } from '../../store';
 import { sortedPizzas } from '../slices/sortSlice';

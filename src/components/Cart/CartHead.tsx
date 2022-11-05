@@ -1,18 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
-import { useEffect, useRef } from 'react';
 const CartHead: React.FC = () => {
   const { cartItems, totalPrice } = useSelector((state: RootState) => state.cart);
   const totalCount = cartItems.reduce((sum, item) => sum + item.count, 0);
-  const isMounted = useRef(false);
-  useEffect(() => {
-    if (isMounted.current) {
-      const json = JSON.stringify(cartItems);
-      localStorage.setItem('cart', json);
-    }
-    isMounted.current = true;
-  }, [cartItems]);
 
   return (
     <Link to="/cart" className="header__cart cart-header">

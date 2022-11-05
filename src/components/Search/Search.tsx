@@ -19,7 +19,11 @@ const Search: React.FC = () => {
     setValue(e.target.value);
     updateSearchValue(e.target.value);
   };
-
+  const handleKeyboardEvent = (e: React.KeyboardEvent<HTMLElement>) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+    }
+  };
   return (
     <div className={activeClass ? 'searchForm active' : 'searchForm'}>
       <form className="search__root">
@@ -30,6 +34,7 @@ const Search: React.FC = () => {
           placeholder="Search pizzas..."
           value={value}
           onChange={onChangeValue}
+          onKeyDown={handleKeyboardEvent}
         />
       </form>
       <button onClick={() => setActiveClass(!activeClass)} className="search__btn">
